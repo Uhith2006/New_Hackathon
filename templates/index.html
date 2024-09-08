@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Area Data Collection</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- External JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#">Clean Energy & Water Initiative</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- Header -->
+    <header class="jumbotron text-center bg-light">
+        <h1 class="display-4">Rural Area Data Collection</h1>
+        <p class="lead">Help us identify areas in need of energy and water resources.</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Form for data collection -->
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h3>Submit Data</h3>
+            </div>
+            <div class="card-body">
+                <form id="dataForm" action="/submit" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" name="location" placeholder="Enter location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="population">Population</label>
+                        <input type="number" class="form-control" name="population" placeholder="Enter population" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="energy_source">Energy Source</label>
+                        <input type="text" class="form-control" name="energy_source" placeholder="Enter energy source" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="water_status">Water Status</label>
+                        <input type="text" class="form-control" name="water_status" placeholder="Enter water status" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Upload Image</label>
+                        <input type="file" class="form-control-file" name="image" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map and Chart Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Map -->
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3>Location Map</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="map" style="height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Graph -->
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3>Data Visualization</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="myChart" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 Clean Energy & Water Initiative</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js and Bootstrap JS for interactive components -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

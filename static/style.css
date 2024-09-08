@@ -1,0 +1,40 @@
+/* Custom Styles */
+
+body {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+h1, .navbar-brand {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.card-header h3 {
+    margin: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Override Bootstrap's default input focus color */
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Map and Chart adjustments for mobile */
+@media (max-width: 767px) {
+    #map, #myChart {
+        height: 300px !important;
+    }
+}
